@@ -1,28 +1,46 @@
 ## 目录结构
 ├── dist                                // 默认的 build 输出目录
+
 ├── .husky                              // pre-commit hook
+
 ├── webpack.config.js                   // 全局配置文件及webpack配置文件
-├── test                                // 测试目录
+
 └── src                                 // 源码目录
+
     ├── assets                          // 公共的文件（如image、css、font等）
+    
     ├── components                      // 项目组件
+    
     ├── constants                       // 常量/接口地址等
+    
     ├── routes                          // 路由
+    
     ├── utils                           // 工具库
+    
     ├── pages                           // 页面模块
         ├── Home                        // Home模块，建议组件统一大写开头
         ├── ...
     ├── App.tsx                         // react顶层文件
+    
     ├── typing                          // ts类型文件
 ├── .editorconfig                       // IDE格式规范
+
 ├── .eslintignore                       // eslint忽略
+
 ├── .eslintrc                           // eslint配置文件
+
 ├── .gitignore                          // git忽略
+
 ├── .prettierrc                         // prettierc配置文件
+
 ├── .babelrc                         // babel配置文件
+
 ├── LICENSE.md                          // LICENSE
+
 ├── package.json                        // package
+
 ├── README.md                           // README
+
 ├── tsconfig.json    
 
 ## 依赖
