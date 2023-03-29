@@ -1,10 +1,19 @@
 import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import { message } from 'antd';
 import { getCookie } from './cookies';
-// const { DEV, DEBUG } = process.env;
 //基础URL，axios将会自动拼接在url前
 //process.env.NODE_ENV 判断是否为开发环境 根据不同环境使用不同的baseURL 方便调试
-const baseURL = '/';
+
+const getEnvConfig = () => {
+	const env = process.env.NODE_ENV;
+	switch (env) {
+		case 'development':
+			return {
+				baseURL: 'http://192.168.0.156:30888',
+			};
+	}
+};
+const baseURL = getEnvConfig()?.baseURL;
 
 //默认请求超时时间
 const timeout = 30000;

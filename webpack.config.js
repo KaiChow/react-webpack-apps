@@ -16,7 +16,8 @@ module.exports = {
 	entry: './src/App.tsx',
 	output: {
 		path: path.join(__dirname, '/dist'),
-		filename: 'bundle.js',
+		chunkFilename: 'js/[name]_chunk-[contenthash:8].js',
+		filename: 'js/[name]-[contenthash:8].js',
 		clean: true,
 	},
 	devServer: {
@@ -88,6 +89,17 @@ module.exports = {
 			{
 				test: /\.(png|svg|jpg)/,
 				type: 'asset/resource',
+				parser: {
+					dataUrlCondition: {
+						//小于10kb的图片转base64
+						// 优点：缺少请求数量；缺点：体积会变大
+						maxSize: 10 * 1024, // 10kb
+					},
+				},
+				generator: {
+					//输出图片名字
+					filename: 'images/[contenthash:8][ext][query]',
+				},
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
